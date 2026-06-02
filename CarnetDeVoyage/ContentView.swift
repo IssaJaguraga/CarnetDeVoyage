@@ -8,29 +8,125 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var monText: String = "Hello"
-
     var body: some View {
-        ZStack {
-            Color.orange
-            
+        ScrollView {
             VStack {
-                Image(systemName: "person")
-                    .font(.largeTitle)
-                    .foregroundStyle(Color.black)
-                    
-                Text("Issa")
-                    .font(.largeTitle)
-                    .foregroundStyle(Color.white)
+                Text("La Carte d'un lieu")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundStyle(.white)
+                    .padding()
                 
-                Button(monText) {
-                monText = "Bonjour"
+                Text("Le livrable du jour : une carte qui combine image cadrée, overlay (badge), Label, formes, étoiles, et tous les modifiers vus aujourd'hui.")
+                    .foregroundStyle(.white)
+                
+                VStack {
+                    VStack {
+                        UnevenRoundedRectangle(topLeadingRadius: 20, topTrailingRadius: 20)
+                            .fill(
+                                LinearGradient(
+                                    colors: [.orange, .red, .red],
+                                    startPoint: .leading,
+                                    endPoint: .trailing))
+                            .overlay(alignment: .topTrailing) {
+                                Text ("Visité")
+                                    .font(.caption.bold())
+                                    .foregroundStyle(.white)
+                                    .padding (8)
+                                    .background(.green, in: Capsule())
+                                    .padding(16)
+                            }
+                            .overlay {
+                                Image(systemName: "sun.max.fill")
+                                    .font(.largeTitle)
+                                    .foregroundStyle(.white)
+                                    .padding()
+                            }
+                    }
+                    .frame(height: 150)
+                    
+                    
+                    VStack(alignment: .leading) {
+                        Text("Lisbonne")
+                        Label("Portugal", systemImage: "map")
+                    }
+                        .foregroundStyle(.white)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding()
                     
                 }
+                .background(.gray.opacity(0.3), in: RoundedRectangle(cornerRadius: 20))
+                
+                
+                VStack {
+                    VStack {
+                        UnevenRoundedRectangle(topLeadingRadius: 20, topTrailingRadius: 20)
+                            .fill(
+                                LinearGradient(
+                                    colors: [.green, .cyan],
+                                    startPoint: .leading,
+                                    endPoint: .trailing))
+                        
+                    }
+                    .overlay {
+                        Image(systemName: "leaf.fill")
+                            .font(.largeTitle)
+                            .foregroundStyle(.white)
+                            .padding()
+                    }
+                    
+                    .frame(height: 150)
+                    
+                    
+                    VStack(alignment: .leading) {
+                        Text("Kyoto")
+                        Label("Japon", systemImage: "map")
+                    }
+                        .foregroundStyle(.white)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding()
+                    
+                }
+                .background(.gray.opacity(0.3), in: RoundedRectangle(cornerRadius: 20))
+                
+                
+                
+                
+                
+                VStack {
+                    VStack {
+                        UnevenRoundedRectangle(topLeadingRadius: 20, topTrailingRadius: 20)
+                            .fill(
+                                LinearGradient(
+                                    colors: [.blue, .cyan],
+                                    startPoint: .leading,
+                                    endPoint: .trailing))
+                        
+                    }
+                    .overlay {
+                        Image(systemName: "snowflake")
+                            .font(.largeTitle)
+                            .foregroundStyle(.white)
+                            .padding()
+                    }
+                    .frame(height: 150)
+                    
+                    VStack(alignment: .leading) {
+                        Text("Paris")
+                        Label("France", systemImage: "map")
+                    }
+                        .foregroundStyle(.white)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding()
+                    
+                }
+                
+                .background(.gray.opacity(0.3), in: RoundedRectangle(cornerRadius: 20))
+                
             }
-            .padding()
         }
-        .ignoresSafeArea()
+            .padding()
+            .background(.black)
     }
 }
 
