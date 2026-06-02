@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
         ScrollView {
             VStack {
@@ -28,27 +29,40 @@ struct ContentView: View {
                                     colors: [.orange, .red, .red],
                                     startPoint: .leading,
                                     endPoint: .trailing))
+                        
                             .overlay(alignment: .topTrailing) {
-                                Text ("Visité")
+                                HStack {
+                                    Image(systemName: "checkmark.circle.fill")
+                                    Text("Visité")
+                                    }
                                     .font(.caption.bold())
                                     .foregroundStyle(.white)
                                     .padding (8)
                                     .background(.green, in: Capsule())
                                     .padding(16)
                             }
+                        
                             .overlay {
                                 Image(systemName: "sun.max.fill")
                                     .font(.largeTitle)
                                     .foregroundStyle(.white)
-                                    .padding()
                             }
                     }
                     .frame(height: 150)
-                    
-                    
-                    VStack(alignment: .leading) {
+
+                    VStack(alignment: .leading, spacing: 5) {
                         Text("Lisbonne")
                         Label("Portugal", systemImage: "map")
+                        
+                        
+                        HStack {
+                            
+                            ForEach(1...5, id: \.self) { index in
+                                Image(systemName: "star.fill")
+                                    .foregroundStyle(.yellow)
+                            }
+                        }
+                       
                     }
                         .foregroundStyle(.white)
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -66,7 +80,6 @@ struct ContentView: View {
                                     colors: [.green, .cyan],
                                     startPoint: .leading,
                                     endPoint: .trailing))
-                        
                     }
                     .overlay {
                         Image(systemName: "leaf.fill")
@@ -78,9 +91,16 @@ struct ContentView: View {
                     .frame(height: 150)
                     
                     
-                    VStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 5) {
                         Text("Kyoto")
                         Label("Japon", systemImage: "map")
+                        HStack {
+                            ForEach(1...4, id: \.self) { index in
+                                Image(systemName: "star.fill")
+                                    .foregroundStyle(.yellow)
+                            }
+                        }
+                        
                     }
                         .foregroundStyle(.white)
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -88,10 +108,6 @@ struct ContentView: View {
                     
                 }
                 .background(.gray.opacity(0.3), in: RoundedRectangle(cornerRadius: 20))
-                
-                
-                
-                
                 
                 VStack {
                     VStack {
@@ -111,18 +127,22 @@ struct ContentView: View {
                     }
                     .frame(height: 150)
                     
-                    VStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 5) {
                         Text("Paris")
                         Label("France", systemImage: "map")
+                        HStack {
+                            ForEach(1...4, id: \.self) { index in
+                                Image(systemName: "star.fill")
+                                    .foregroundStyle(.yellow)
+                            }
+                        }
                     }
                         .foregroundStyle(.white)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding()
-                    
                 }
                 
                 .background(.gray.opacity(0.3), in: RoundedRectangle(cornerRadius: 20))
-                
             }
         }
             .padding()
