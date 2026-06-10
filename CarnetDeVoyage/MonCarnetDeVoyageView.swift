@@ -34,23 +34,26 @@ struct MonCarnetDeVoyageView: View {
                             .foregroundStyle(.secondary)
                             .font(.title3)
                         
-                        ForEach(lesLieux) { lieu in
-                            Image(lieu.image)
-                                .resizable()
-                                .scaledToFit()
-                                .clipShape(RoundedRectangle (cornerRadius: 16))
-                                .padding(.horizontal)
-                                .shadow(radius: 11, y: 34)
-            
-                            Text("\(lieu.pays) - \(lieu.nom)")
-                                .font(.title3)
-                                .fontWeight(.bold)
-                                .foregroundStyle(.white)
-                                .padding(.bottom)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.leading)
-                            .padding(.top, -15)
+                        ForEach(Lieu.lieux) { lieu in
+                            VStack {
+                                Image(lieu.image)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .clipShape(RoundedRectangle(cornerRadius: 16))
+                                    .padding(.horizontal)
+                                    .shadow(radius: 11, y: 34)
                             
+
+                                Text("\(lieu.pays) - \(lieu.nom)")
+                                    .font(.title3)
+                                    .fontWeight(.bold)
+                                    .foregroundStyle(.white)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .padding(.leading)
+                                    .padding(.top, 2)
+                                
+                            }
+                            .padding(8)
                         }
                      
                     }
