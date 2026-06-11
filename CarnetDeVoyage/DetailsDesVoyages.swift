@@ -8,43 +8,45 @@
 import SwiftUI
 
 struct DetailsDesVoyages: View {
+    
+    let lieu: Lieu
+    
     var body: some View {
         ZStack {
             LinearGradient(
-                colors: [.yellow.opacity(0.4), .purple.opacity(0.2)],
-                startPoint: .leading,
-                endPoint: .trailing)
-                .ignoresSafeArea()
-
+                colors: [Color(red: 0.98, green: 0.92, blue: 0.75), Color(red: 0.55, green: 0.78, blue: 0.88)],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+            .ignoresSafeArea()
+            
             VStack() {
-                    
-                Image(.newZealand)
+                
+                Image(lieu.image)
                     .resizable()
                     .scaledToFill()
+                    .frame(maxWidth: .infinity)
                     .frame(width: 200)
-                Text("La New Zealand")
+                
+                Text(lieu.nom)
                     .font(.largeTitle)
                     .fontWeight(.bold)
-
-                Text("Des paysages à couper le souffle")
+                
+                Text(lieu.pays)
                     .font(.title2)
                     .foregroundStyle(.secondary)
-                Text("La Nouvelle-Zélande est l’un des pays les plus spectaculaires au monde. Entre ses fjords majestueux, ses montagnes imposantes, ses lacs turquoise et ses vallées verdoyantes, chaque paysage semble sortir d’un film d’aventure.")
                 
+                Text(lieu.description)
                     .padding(16)
                     .multilineTextAlignment(.center)
                     .lineSpacing(5)
                     .frame(maxWidth: .infinity)
                 
-                
-                
+                }
             }
-
-
         }
     }
-}
 
 #Preview {
-    DetailsDesVoyages()
+    DetailsDesVoyages(lieu: Lieu.lieux[0])
 }

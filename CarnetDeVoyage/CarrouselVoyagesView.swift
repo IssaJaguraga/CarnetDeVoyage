@@ -9,8 +9,6 @@ import SwiftUI
 
 struct CarrouselVoyagesView: View {
     
-
-    
     var body: some View {
         Section {
             ScrollView(.horizontal, showsIndicators: false) {

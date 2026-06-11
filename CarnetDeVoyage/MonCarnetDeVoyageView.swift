@@ -8,24 +8,18 @@
 import SwiftUI
 
 struct MonCarnetDeVoyageView: View {
-
+    
     var body: some View {
-        ZStack {
-            LinearGradient(
-                colors: [.yellow, .cyan],
-                startPoint: .leading,
-                endPoint: .trailing)
+        NavigationStack {
+            ZStack {
+                LinearGradient(
+                    colors: [Color(red: 0.98, green: 0.92, blue: 0.75), Color(red: 0.55, green: 0.78, blue: 0.88)],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
                 .ignoresSafeArea()
-            
-            VStack {
                 ScrollView {
-                    LinearGradient(
-                        colors: [.yellow, .cyan],
-                        startPoint: .leading,
-                        endPoint: .trailing)
-                    
-                    VStack(alignment: .center, spacing: 20){
-                        
+                    VStack(alignment: .center, spacing: 20) {
                         Text("Mon Carnet de Voyage")
                             .font(.largeTitle)
                             .fontWeight(.bold)
@@ -35,36 +29,34 @@ struct MonCarnetDeVoyageView: View {
                             .font(.title3)
                         
                         ForEach(Lieu.lieux) { lieu in
-                            VStack {
-                                Image(lieu.image)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .clipShape(RoundedRectangle(cornerRadius: 16))
-                                    .padding(.horizontal)
-                                    .shadow(radius: 11, y: 34)
-                            
-
-                                Text("\(lieu.pays) - \(lieu.nom)")
-                                    .font(.title3)
-                                    .fontWeight(.bold)
-                                    .foregroundStyle(.white)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .padding(.leading)
-                                    .padding(.top, 2)
-                                
+                            NavigationLink {
+                                DetailsDesVoyages(lieu: lieu)
+                            } label: {
+                                VStack {
+                                    Image(lieu.image)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .clipShape(RoundedRectangle(cornerRadius: 16))
+                                        .padding(.horizontal)
+                                        .shadow(radius: 11, y: 34)
+                                    
+                                    
+                                    Text("\(lieu.pays) - \(lieu.nom)")
+                                        .font(.title3)
+                                        .fontWeight(.bold)
+                                        .foregroundStyle(.white)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                        .padding(.leading)
+                                        .padding(.top, 2)
+                                }
+                                .padding(8)
                             }
-                            .padding(8)
                         }
-                     
                     }
-                    
                 }
-            
             }
-            
         }
     }
-    
 }
 
 #Preview {
