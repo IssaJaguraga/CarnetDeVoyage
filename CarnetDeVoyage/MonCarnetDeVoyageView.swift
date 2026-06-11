@@ -13,9 +13,9 @@ struct MonCarnetDeVoyageView: View {
         NavigationStack {
             ZStack {
                 LinearGradient(
-                    colors: [Color(red: 0.98, green: 0.92, blue: 0.75), Color(red: 0.55, green: 0.78, blue: 0.88)],
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
+                    colors: [.yellow.opacity(0.4), .blue.opacity(0.3)],
+                    startPoint: .top,
+                    endPoint: .bottom
                 )
                 .ignoresSafeArea()
                 ScrollView {

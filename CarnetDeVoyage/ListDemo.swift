@@ -17,6 +17,7 @@ struct ListDemo: View {
         { $0.nom.localizedStandardContains(recherche) }
     }
     var body: some View {
+        
         NavigationStack {
             VStack {
                 List {
